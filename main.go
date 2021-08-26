@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-type Config struct {
+type Jobs struct {
 	Job	[]*Job `json:"job"`
 }
 
@@ -17,8 +17,8 @@ type Job struct {
 	Interval int `json:"interval"`
 }
 
-func getConfig() *Config {
-	c :=  &Config{}
+func getConfig() *Jobs {
+	c :=  &Jobs{}
 	yamlFile, err := ioutil.ReadFile("jobs/jobs.yml")
 	if err != nil {
 		panic("Can't read file")
