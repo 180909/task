@@ -1,18 +1,17 @@
 package main
 
 import (
-	"context"
 	"fmt"
+	"github.com/spf13/cast"
 	"time"
 
 	"github.com/180909/task/db"
 	"github.com/180909/task/models"
-	"github.com/spf13/cast"
 )
 
 func main() {
 	db.ConnDB()
-	jobs, err := db.GetAllJobs(context.Background())
+	jobs, err := db.GetAllJobs()
 	if err != nil {
 		panic("something error: " + err.Error())
 	}
@@ -23,7 +22,9 @@ func main() {
 }
 
 func task(job models.Job) {
-	fmt.Sprint("%s, start time: %s \n", job.Name, time.Now().String())
-	timer := time.NewTimer(time.Duration(cast.ToInt64(job.Interval)) * time.Second)
-	fmt.Println(<-timer.C)
+	for {
+		fmt.Sprintf("%s, start time: %s \n", job.Name, time.Now().String())
+		timer := time.NewTimer(time.Duration(cast.ToInt64(job.Interval)) * time.Second)
+		fmt.Println(<-timer.C)
+	}
 }
