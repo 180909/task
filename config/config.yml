@@ -1,0 +1,7 @@
+job:
+  - name: first
+    interval: 3
+  - name: second
+    interval: 2
+  - name: third
+    interval: 7
