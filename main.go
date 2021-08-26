@@ -19,7 +19,7 @@ type Job struct {
 
 func getConfig() *Config {
 	c :=  &Config{}
-	yamlFile, err := ioutil.ReadFile("config/config.yml")
+	yamlFile, err := ioutil.ReadFile("jobs/jobs.yml")
 	if err != nil {
 		panic("Can't read file")
 	}
