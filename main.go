@@ -40,7 +40,7 @@ func main() {
 
 func task(job Job) {
 	for {
-		fmt.Sprintf("%s, start time: %s \n", job.Name, time.Now().String())
+		fmt.Println(fmt.Sprintf("%s, start time: %s", job.Name, time.Now().String()))
 		timer := time.NewTimer(time.Duration(cast.ToInt64(job.Interval)) * time.Second)
 		fmt.Println(<-timer.C)
 	}
