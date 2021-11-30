@@ -9,16 +9,16 @@ import (
 )
 
 type Jobs struct {
-	Job	[]*Job `json:"job"`
+	Job []*Job `json:"job"`
 }
 
 type Job struct {
-	Name string `json:"name"`
-	Interval int `json:"interval"`
+	Name     string `json:"name"`
+	Interval int    `json:"interval"`
 }
 
 func getConfig() *Jobs {
-	c :=  &Jobs{}
+	c := &Jobs{}
 	yamlFile, err := ioutil.ReadFile("jobs/jobs.yml")
 	if err != nil {
 		panic("Can't read file")
