@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/spf13/cast"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"time"
+
+	"github.com/spf13/cast"
+	"gopkg.in/yaml.v2"
 )
 
 type Jobs struct {
@@ -19,7 +20,7 @@ type Job struct {
 
 func getConfig() *Jobs {
 	c := &Jobs{}
-	yamlFile, err := ioutil.ReadFile("jobs/jobs.yml")
+	yamlFile, err := ioutil.ReadFile("./jobs/jobs.yml")
 	if err != nil {
 		panic("Can't read file")
 	}
